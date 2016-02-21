@@ -1,0 +1,23 @@
+To do:
+
+-Audio:
+	-create algorithm to loop playlist or play random songs from a list
+
+-Bind 'escape' to pop up screen
+	
+  	-Quit to Menu
+	
+  	-Resume
+
+-Background for menu and 'how to play'
+
+-Update 'how to play'
+
+-Setting Screen: lower the volume of audio
+
+
+Possibly:
+
+-Change to new game without the color_direction_button
+
+-audio when something is clicked

@@ -1,0 +1,145 @@
+#:kivy 1.9.1
+
+<StroopGame>:
+    color_button1: c1
+    color_button2: c2
+    color_button3: c3
+    color_button4: c4
+    score_button: s
+    timer_button: t
+    color_direction_button: cdb
+
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            id: s
+            size_hint: 1, .15
+            text: 'Score'
+        Button:
+            id: t
+            size_hint: 1, .15
+            text: 'Timer'
+        FloatLayout:
+            Button:
+                id: c1
+                size_hint: .5, .5
+                pos_hint: {'x':0, 'y':.5}
+                text: 'Color 1'
+            Button:
+                id: c2
+                size_hint: .5, .5
+                pos_hint: {'x':.5, 'y':.5}
+                text: 'Color 2'
+            Button:
+                id: c3
+                size_hint: .5, .5
+                pos_hint: {'x':0, 'y':0}
+                text: 'Color 3'
+            Button:
+                id: c4
+                size_hint: .5, .5
+                pos_hint: {'x':.5, 'y':0}
+                text: 'Color 4'
+            Button:
+                id: cdb
+                background_color: [255,0,0,.9]
+                text: 'directions'
+                size_hint: .25, .25
+                pos_hint: {'x':.38, 'y':.38}
+        Button:
+            size_hint: 1, .1
+            text: 'BACK'
+            on_press:
+                root.manager.current = 'menu'
+                
+<Menu>:
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 0, .9
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Button:
+            background_color: [0,0,255,.6]
+            text: 'Play'
+            size_hint: .25, .25
+            pos_hint: {'x':.37, 'y':.65}
+            on_press:
+                app.start_game()
+                app.play_music()
+        Button:
+            background_color: [0,0,255,.6]
+            text: 'How to play'
+            size_hint: .25, .25
+            pos_hint: {'x':.37, 'y':.3}
+            on_press:
+                root.manager.current = 'how_to_play'
+        Button:
+            background_color: [0,0,255,.6]
+            text: 'Settings'
+            size_hint: .25, .15
+            pos_hint: {'x':.37, 'y':.1}
+            on_press:
+                root.manager.current = 'setting'
+                
+<HowToPlay>:
+    FloatLayout:
+                
+        Button:
+            background_color: [0,0,0,.9]
+            text: 'Not built yet'
+            size_hint: 1, 1
+        Button:
+            background_color: [0,0,255,.6]
+            size_hint: .25, .25
+            pos_hint: {'x':.75, 'y':0}
+            text: 'Menu'
+            on_touch_down:
+                root.manager.current = 'menu'
+
+
+<Setting>:
+    BoxLayout:
+        
+        Button:
+            text: 'setting menu'
+        Button:
+            text: 'back'
+            
+            on_press:
+                root.manager.current = 'menu'
+                
+<GameOver>:
+    final_score: f
+    title: 'Pop up'
+    BoxLayout:
+        orientation: 'vertical'
+        Button:
+            background_color: 255, 0, 0, .9
+            id: f
+            text: 'Score'
+        Button:
+            background_color: 0, 0, 255, .9
+            text: 'Play Again'
+            on_press:
+                app.start_game()
+                root.dismiss()
+        Button:
+            background_color: 0, 255, 0, .9
+            text: 'Menu'
+            on_press:
+                app.go_to_menu()
+                root.dismiss()
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
